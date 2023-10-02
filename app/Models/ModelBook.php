@@ -18,6 +18,12 @@ class ModelBook extends Model
         'price'
     ];
 
+    public function getPriceAttribute($value)
+    {
+        // Formate o valor para reais brasileiros (BRL)
+        return number_format($value / 100, 2, ',', '.');
+    }
+
     public function relUser()
     {
         return $this->hasOne(User::class, 'id', 'id_user');//1 livro-> 1 autor
