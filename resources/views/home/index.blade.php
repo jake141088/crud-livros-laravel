@@ -113,7 +113,8 @@
               <p class="card-text">{{$book->title}}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Ver Mais</button>
+
+                  <a href="{{ route('home.show', ['id' => $book->id]) }}" class="btn btn-sm btn-outline-secondary">Ver Mais</a>
                   <button type="button" class="btn btn-sm btn-outline-secondary">Adicionar Carrinho</button>
                 </div>
                 <small class="text-body-secondary">9 mins</small>

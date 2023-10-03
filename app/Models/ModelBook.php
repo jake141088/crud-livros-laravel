@@ -21,7 +21,7 @@ class ModelBook extends Model
     public function getPriceAttribute($value)
     {
         // Formate o valor para reais brasileiros (BRL)
-        return number_format($value / 100, 2, ',', '.');
+        return number_format($value, 2, ',', '.');
     }
 
     public function relUser()

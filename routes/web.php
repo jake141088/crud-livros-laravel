@@ -13,6 +13,7 @@ use PharIo\Manifest\Author;
 |No caso abaixo chama-se o metodo index do controller
 */
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('home/{book}', [HomeController::class, 'show'])->name('home.show');
 Route::resource('/books', BookController::class);
 //Route::get('/', [BookController::class, 'index']);
 Route::get('/books', [BookController::class, 'index'])->name('books.index');

@@ -36,7 +36,7 @@
               <td>{{$book->relUser->name}}</td>
               <td>{{$book->price}}</td>
               <td>
-                <a href="{{url("books/$book->id")}}">
+                <a href="{{url("books/$book->id")}}>
                   <button class="btn btn-dark">Visualizar</button></a>
 
                 <a href="{{route('books.edit', ['book' => $book])}}">
