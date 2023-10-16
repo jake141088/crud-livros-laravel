@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CarrinhoController;
 use PharIo\Manifest\Author;
 
 /*
@@ -13,7 +14,9 @@ use PharIo\Manifest\Author;
 |No caso abaixo chama-se o metodo index do controller
 */
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
-Route::get('home/{book}', [HomeController::class, 'show'])->name('home.show');
+Route::post('/adicionar-carrinho', [CarrinhoController::class, 'addCart'])->name('carrinho.add');
+Route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho.index');
+Route::get('/detalhes/{book}', [HomeController::class, 'show'])->name('home.show');
 Route::resource('/books', BookController::class);
 //Route::get('/', [BookController::class, 'index']);
 Route::get('/books', [BookController::class, 'index'])->name('books.index');

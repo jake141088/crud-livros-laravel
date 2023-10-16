@@ -59,7 +59,7 @@
       <div class="row">
         <div class="col-sm-8 col-md-7 py-4">
           <h4>About</h4>
-          <p class="text-body-secondary">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+          <p class="text-body-secondary">Add some information about the album below, the author, or any other background context.</p>
         </div>
         <div class="col-sm-4 offset-md-1 py-4">
           <h4>Contact</h4>
@@ -102,7 +102,7 @@
 
   <div class="album py-5 bg-body-tertiary">
     <div class="container">
-    
+   Quantidade no Carrinho: {{ count(session('carrinho', [])) }}
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
        @foreach($books as $book)
         <div class="col">
@@ -114,8 +114,13 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
 
-                  <a href="{{ route('home.show', ['id' => $book->id]) }}" class="btn btn-sm btn-outline-secondary">Ver Mais</a>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Adicionar Carrinho</button>
+                  <a href="{{ route('home.show', ['book' => $book->id]) }}" class="btn btn-sm btn-outline-secondary">Ver Mais</a>
+                  <form method="POST" action="/adicionar-carrinho">
+                  @csrf
+                  <input type="hidden" name="produto_id" value="{{ $book->id }}">
+                  <input type="hidden" name="quantidade" value="1" min="1">
+                  <button class="btn btn-sm btn-outline-secondary" type="submit">Adicionar ao Carrinho</button>
+                  </form>
                 </div>
                 <small class="text-body-secondary">9 mins</small>
               </div>
